@@ -33,7 +33,6 @@ def convert_time_to_seconds(time_str):
 @celery_app.task
 def get_coda_data():
     data = wrapper.get_list()
-    pprint(data)
     df = pd.DataFrame([{'createdAt': row.get('createdAt'), **row.get('values')} for row in data])
     df['Actual Time (seconds)'] = df['Actual Time'].apply(convert_time_to_seconds)
     df['Planned Time (seconds)'] = df['Planned Time'].apply(convert_time_to_seconds)
