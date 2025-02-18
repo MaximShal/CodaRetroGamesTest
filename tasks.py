@@ -3,7 +3,6 @@ import pandas as pd
 from celery_config import celery_app
 from coda import Wrapper, settings
 from datetime import datetime
-from pprint import pprint
 
 
 wrapper = Wrapper(settings.CODA_DOC_ID, settings.CODA_TABLE_ID)
